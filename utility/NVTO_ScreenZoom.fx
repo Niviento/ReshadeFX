@@ -1,6 +1,6 @@
 //=================================================================================================
 //
-//  NVTOScreenZoom
+//  NVTO_ScreenZoom
 //  by NIVIENTO 2026
 //  Steam: https://steamcommunity.com/id/Niviento/
 //
@@ -25,7 +25,7 @@ float2 NVZ_ZoomUV(float2 uv)
 	return p + 0.5;
 }
 
-float4 PS_NVTOScreenZoom(float4 pos : SV_Position, float2 uv : TEXCOORD0) : SV_Target
+float4 PS_NVTO_ScreenZoom(float4 pos : SV_Position, float2 uv : TEXCOORD0) : SV_Target
 {
 	float2 zoomUV = NVZ_ZoomUV(uv);
 
@@ -39,11 +39,11 @@ float4 PS_NVTOScreenZoom(float4 pos : SV_Position, float2 uv : TEXCOORD0) : SV_T
 	return float4(col, 1.0);
 }
 
-technique NVTOScreenZoom
+technique NVTO_ScreenZoom
 {
-	pass NVTOScreenZoom
+	pass NVTO_ScreenZoom
 	{
 		VertexShader = PostProcessVS;
-		PixelShader = PS_NVTOScreenZoom;
+		PixelShader = PS_NVTO_ScreenZoom;
 	}
 }

@@ -1,6 +1,6 @@
 //=================================================================================================
 //
-//  NVTOChromaSmear.fx
+//  NVTO_ChromaSmear.fx
 //  by NIVIENTO 2026
 //  Steam: https://steamcommunity.com/id/Niviento/
 //
@@ -99,7 +99,7 @@ float3 NCS_BlurRGB(float2 uv, float radius)
 	return c;
 }
 
-float4 PS_NVTOChromaSmear(float4 pos : SV_Position, float2 uv : TEXCOORD0) : SV_Target
+float4 PS_NVTO_ChromaSmear(float4 pos : SV_Position, float2 uv : TEXCOORD0) : SV_Target
 {
 	float3 original = NCS_Read(uv);
 
@@ -122,11 +122,11 @@ float4 PS_NVTOChromaSmear(float4 pos : SV_Position, float2 uv : TEXCOORD0) : SV_
 	return float4(saturate(result), 1.0);
 }
 
-technique NVTOChromaSmear
+technique NVTO_ChromaSmear
 {
-	pass NVTOChromaSmear
+	pass NVTO_ChromaSmear
 	{
 		VertexShader = PostProcessVS;
-		PixelShader = PS_NVTOChromaSmear;
+		PixelShader = PS_NVTO_ChromaSmear;
 	}
 }
